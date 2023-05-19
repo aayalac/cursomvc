@@ -18,7 +18,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" />
-          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
           <Property Name="idState" Type="int" />
           <Property Name="edad" Type="int" />
         </EntityType>
@@ -46,7 +46,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cursomvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="cursomvcEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="cursomvcEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="cstate" EntityType="cursomvcModel.cstate" />
           <EntitySet Name="user" EntityType="cursomvcModel.user" />
           <AssociationSet Name="FK_user_cstate" Association="cursomvcModel.FK_user_cstate">
@@ -68,7 +68,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idState" Type="Int32" />
           <Property Name="edad" Type="Int32" />
           <NavigationProperty Name="cstate" Relationship="cursomvcModel.FK_user_cstate" FromRole="user" ToRole="cstate" />
@@ -90,7 +90,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="cursomvcModelStoreContainer" CdmEntityContainer="cursomvcEntities">
+        <EntityContainerMapping StorageEntityContainer="cursomvcModelStoreContainer" CdmEntityContainer="cursomvcEntities1">
           <EntitySetMapping Name="cstate">
             <EntityTypeMapping TypeName="cursomvcModel.cstate">
               <MappingFragment StoreEntitySet="cstate">

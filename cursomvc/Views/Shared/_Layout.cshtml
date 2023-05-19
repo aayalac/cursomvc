@@ -23,18 +23,19 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Usuarios", "Index", "User")</li>
+                    <li>@Html.ActionLink("Cerrar Sesion", "Logoff", "Access")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">        
-        @RenderBody()        
+    <div class="container body-content">
+        <hr />
+        @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación MVC de ASP.NET</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

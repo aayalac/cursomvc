@@ -4,7 +4,11 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<br/>
+<br />
+<p>
+    Obligatorio diligenciar todos los campos.
+</p>
+<br />
 <div class="row">
     <div class="col-md-12">
         @using (Html.BeginForm("Add", "User", FormMethod.Post, new { role = "form", @class = "" }))
@@ -28,6 +32,8 @@
             @Html.LabelFor(d => d.Edad)
             @Html.TextBoxFor(d => d.Edad, new { @class = "form-control" })
             @Html.ValidationMessage("Edad", new { @class = "text-danger" })
+
+            <br />
 
             <div style="text-align:right;">
                 <input type="submit" class="btn btn-success" value="Guardar" />

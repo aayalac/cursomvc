@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using cursomvc.Models;
+﻿using cursomvc.Models;
 using cursomvc.Models.TableViewModels;
 using cursomvc.Models.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace cursomvc.Controllers
 {
@@ -15,17 +13,17 @@ namespace cursomvc.Controllers
         public ActionResult Index()
         {
             List<UserTableViewModel> lst = null;
-            using (cursomvcEntities db= new cursomvcEntities())
+            using (cursomvcEntities1 db = new cursomvcEntities1())
             {
                 lst = (from d in db.user
-                      where d.idState == 1
-                      orderby d.email
-                      select new UserTableViewModel
-                      {
-                          Email = d.email,
-                          Id = d.id,
-                          Edad = d.edad
-                      }).ToList();
+                       where d.idState == 1
+                       orderby d.email
+                       select new UserTableViewModel
+                       {
+                           Email = d.email,
+                           Id = d.id,
+                           Edad = d.edad
+                       }).ToList();
             }
             return View(lst);
         }
@@ -41,7 +39,7 @@ namespace cursomvc.Controllers
             {
                 return View(model);
             }
-            using (var db= new cursomvcEntities())
+            using (var db = new cursomvcEntities1())
             {
                 user oUser = new user();
                 oUser.idState = 1;

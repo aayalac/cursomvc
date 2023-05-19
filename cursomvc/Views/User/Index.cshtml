@@ -3,10 +3,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Usuarios</h2>
+<h3>Lista de Usuarios</h3>
+<br/>
 <div class="row">
     <div class="col-md-12">
-        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/User/add")'" value="Nuevo"/>
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/User/add")'" value="Agregar Nuevo"/>
     </div>
 </div>
 <br/>
@@ -14,7 +15,7 @@
     <div class="col-lg-12">
         <table class="table table-bordered">
             <tr>
-                <th>#</th>
+                <th>Id</th>
                 <th>Email</th>
                 <th>Edad</th>
             </tr>

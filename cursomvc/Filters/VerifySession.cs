@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
-using cursomvc.Controllers;
 using cursomvc.Models;
 
-namespace cursomvc.Filters
+namespace cursomvc.Controllers.Filters
 {
     public class VerifySession : ActionFilterAttribute
     {
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var oUser = (user)HttpContext.Current.Session["User"];
-            if (oUser != null)
+
+            if (oUser == null)
             {
                 if (filterContext.Controller is AccessController == false)
                 {
                     filterContext.HttpContext.Response.Redirect("~/Access/Index");
-                }
+                }                
             }
             else
             {
@@ -27,7 +24,8 @@ namespace cursomvc.Filters
                     filterContext.HttpContext.Response.Redirect("~/Home/Index");
                 }
             }
-            base.OnActionExecuted(filterContext);
+
+            base.OnActionExecuting(filterContext);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using cursomvc.Controllers;
 
 namespace cursomvc
 {
@@ -8,7 +9,7 @@ namespace cursomvc
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            //filters.Add(new Filters.VerifySession());
+            filters.Add(new Controllers.Filters.VerifySession());
         }
     }
 }

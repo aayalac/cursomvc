@@ -13,10 +13,10 @@ namespace cursomvc.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cursomvcEntities : DbContext
+    public partial class cursomvcEntities1 : DbContext
     {
-        public cursomvcEntities()
-            : base("name=cursomvcEntities")
+        public cursomvcEntities1()
+            : base("name=cursomvcEntities1")
         {
         }
     
