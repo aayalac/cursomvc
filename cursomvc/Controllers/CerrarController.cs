@@ -11,6 +11,7 @@ namespace cursomvc.Controllers
         public ActionResult Logoff()
         {
             Session["User"] = null;
+
             return RedirectToAction("Index", "Access");
         }
     }
