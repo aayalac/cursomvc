@@ -18,6 +18,7 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Edad</th>
+                <th></th>
             </tr>
             @foreach (var oElemento in Model)
             {
@@ -25,8 +26,29 @@
                     <td>@oElemento.Id</td>
                     <td>@oElemento.Email</td>
                     <td>@oElemento.Edad</td>
+                    <td>
+                        <input onclick="jsDelete(@oElemento.Id);" value="Eliminar" class="btn btn-danger " />
+                        <input onclick="document.location.href='@Url.Content("~/User/Edit/"+oElemento.Id)'" type="button" value="Editar" class="btn btn-default" />
+                    </td>
                 </tr>
             }
         </table>
     </div>
 </div>
+
+<script>
+    function jsDelete(id) {
+
+        if(confirm("¿Estás seguro de borrar el registro?"))
+
+            url = "@Url.Content("~/User/Delete")" + "/" + id;       
+
+            $.post(url, function (data){
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/User/")"
+                } else {
+                    alert("Ocurrió un error")
+                }
+            })
+    }
+</script>
