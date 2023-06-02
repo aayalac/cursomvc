@@ -24,6 +24,7 @@
             e.preventDefault();
 
             url = "@Url.Content("~/Access/Enter")"
+
             parametros = $(this).serialize();
 
             $.post(url, parametros, function (data) {

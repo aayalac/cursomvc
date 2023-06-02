@@ -1,10 +1,9 @@
-﻿using cursomvc.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using cursomvc.Models;
 using cursomvc.Models.TableViewModels;
 using cursomvc.Models.ViewModels;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web.Mvc;
 
 namespace cursomvc.Controllers
 {
@@ -28,11 +27,13 @@ namespace cursomvc.Controllers
             }
             return View(lst);
         }
+
         [HttpGet]
         public ActionResult Add()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Add(UserViewModel model)
         {
@@ -62,11 +63,10 @@ namespace cursomvc.Controllers
             using (var db = new cursomvcEntities1())
             {
                 var oUser = db.user.Find(Id);
-                model.Edad=(int)oUser.edad;
+                model.Edad = (int)oUser.edad;
                 model.Email = oUser.email;
                 model.Id = oUser.id;
             }
-
             return View(model);
         }
         [HttpPost]
@@ -81,18 +81,17 @@ namespace cursomvc.Controllers
             using (var db = new cursomvcEntities1())
             {
                 var oUser = db.user.Find(model.Id);
-                oUser.email= model.Email;
+                oUser.email = model.Email;
                 oUser.edad = model.Edad;
 
-                if(model.Password != null && model.Password.Trim() != "")
+                if (model.Password != null && model.Password.Trim() != "")
                 {
                     oUser.password = model.Password;
                 }
 
-                db.Entry(oUser).State=System.Data.Entity.EntityState.Modified;
+                db.Entry(oUser).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
-
             return Redirect(Url.Content("~/User/"));
         }
 
@@ -109,11 +108,8 @@ namespace cursomvc.Controllers
 
                 db.SaveChanges();
             }
-
             return Content("1");
-
         }
 
-    }  
-
+    }
 }
